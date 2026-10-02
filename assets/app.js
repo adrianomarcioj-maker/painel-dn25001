@@ -19,7 +19,7 @@
 
   var TABELAS = ['contrato', 'produtos', 'acoes', 'medicoes', 'medicao_itens', 'acertos', 'acerto_linhas', 'equipe',
     'aportes', 'rateio_planejado', 'parametros', 'documentos', 'pendencias'];
-  var ABAS = ['visao', 'medicoes', 'custos', 'acertos', 'documentos', 'pendencias'];
+  var ABAS = ['visao', 'medicoes', 'custos', 'acertos', 'documentos', 'pendencias', 'ajuda'];
   var TIPOS_DOC = {
     boletim: ['file-spreadsheet', 'Boletim de medição'], nf_emitida: ['receipt', 'NF emitida ao DNIT'],
     nf_fornecedor: ['receipt', 'NF de fornecedor'], folha: ['users', 'Folha e equipe'], comprovante: ['wallet', 'Comprovante'],
@@ -511,7 +511,56 @@
     return h;
   }
 
-  var RENDER = { visao: renderVisao, medicoes: renderMedicoes, custos: renderCustos, acertos: renderAcertos, documentos: renderDocumentos, pendencias: renderPendencias };
+  function renderAjuda() {
+    var h = secao('Como usar', 'Manual do <em>painel</em>', 'O essencial para consultar o contrato e, no caso do gestor, fechar o mês');
+    function bloco(col, titulo, itens, numerado) {
+      var tag = numerado ? 'ol' : 'ul';
+      return card(col, titulo, '', '<' + tag + ' class="app-steps">' + itens.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</' + tag + '>');
+    }
+    h += '<div class="dt-grid" style="align-items:start">' +
+      bloco('dt-col-6', 'Acesso', [
+        'Entre com seu e-mail da Dynatest e a sua senha.',
+        'No primeiro acesso, troque a senha provisória em <b>Alterar senha</b>, no topo da página.',
+        'Esqueceu a senha ou precisa liberar alguém? Fale com o gestor do contrato.',
+        'Cada pessoa tem o próprio acesso: não compartilhe a sua senha.'
+      ]) +
+      bloco('dt-col-6', 'Perfis', [
+        '<b>Leitura:</b> vê todas as abas e números, sem alterar nada.',
+        '<b>Gestor:</b> além de ver, aprova acertos, registra repasses e resolve pendências.',
+        'O painel mostra a equipe por área, nunca o custo de cada pessoa.'
+      ]) + '</div>';
+    h += '<section class="dt-card"><div class="dt-card-head"><div><h2 class="dt-h3">O que cada aba responde</h2></div></div><div class="dt-table-wrap"><table class="dt-table"><thead><tr><th>Aba</th><th>Pergunta que responde</th><th>O que olhar primeiro</th></tr></thead><tbody>' +
+      [['Visão geral', 'Como está o contrato?', 'Medido acumulado, saldo e resultado da SCP; depois a Curva S'],
+       ['Medições', 'O que foi medido em cada ação?', 'Coluna Execução; a etiqueta “Valores de referência” indica medição ainda não oficial'],
+       ['Custos e rateio', 'Como o contrato se divide e quais regras valem?', 'Rateio planejado e a tabela de parâmetros (impostos, % da SCP)'],
+       ['Acertos e repasses', 'Quanto a SCP recebeu, gastou e repassa?', 'A cascata, do faturamento ao repasse, e a situação do acerto'],
+       ['Documentos', 'O que já chegou e o que falta?', 'Itens “Aguardando”: são os documentos que ainda faltam'],
+       ['Pendências', 'O que precisa de decisão?', 'As críticas (ícone vermelho) primeiro']].map(function (r) {
+        return '<tr><td><b>' + r[0] + '</b></td><td>' + r[1] + '</td><td>' + r[2] + '</td></tr>';
+      }).join('') + '</tbody></table></div></section>';
+    h += '<div class="dt-grid" style="align-items:start">' +
+      bloco('dt-col-6', 'Controles do topo', [
+        '<b>Seletor de medição:</b> mostra o contrato até a medição escolhida.',
+        '<b>“Dados de…”:</b> data e hora da última atualização da base.',
+        '<b>Tema:</b> alterna claro, escuro ou o padrão do computador.',
+        'Passe o mouse sobre os gráficos para ver os valores; <b>Ver dados do gráfico</b> mostra a tabela.'
+      ]) +
+      bloco('dt-col-6', 'Como os dados entram', [
+        'E-mails com <b>DN25001</b> no assunto ou no corpo, ou com <b>TSD DNIT</b> / <b>DNIT TSD</b> no assunto, seguem automaticamente para a leitura do painel.',
+        'A leitura separa os anexos (boletins, notas fiscais, comprovantes, folha, acertos) e confere os valores com o contrato.',
+        'O que confere entra no painel; o que não confere vira uma <b>pendência</b>.',
+        'Documento importante chegou sem esses códigos? O gestor o encaminha para si mesmo com DN25001 no assunto.'
+      ]) + '</div>';
+    h += bloco('', 'Fechamento do mês · só o gestor', [
+      'Em <b>Documentos</b>, confira se boletim, nota fiscal, comprovante de pagamento, folha e acerto do mês chegaram (nada em “Aguardando”).',
+      'Em <b>Pendências</b>, analise as novas: use <b>Marcar em análise</b> enquanto apura e <b>Resolver</b> com uma frase dizendo o que foi decidido.',
+      'Em <b>Acertos e repasses</b>, confira o demonstrativo e clique em <b>Aprovar acerto</b>.',
+      'Depois do pagamento à sócia participante, informe a data e clique em <b>Registrar repasse</b>.'
+    ], true);
+    return h;
+  }
+
+  var RENDER = { visao: renderVisao, medicoes: renderMedicoes, custos: renderCustos, acertos: renderAcertos, documentos: renderDocumentos, pendencias: renderPendencias, ajuda: renderAjuda };
   function render() {
     S.montagens = [];
     DT.tooltip.hide();
