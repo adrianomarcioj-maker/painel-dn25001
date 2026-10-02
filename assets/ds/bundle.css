@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ARRB Dynatest · Gestão de Contrato — estilos dos componentes (prefixo dt-).
+   Só tokens (var(--…)); nenhum valor de cor solto. Carlito = substituto métrico da Calibri fora do Windows. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-sans); font-size: 14px; line-height: 20px; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
+.dt-pad { padding: var(--space-6); }
+.dt-stack { display: grid; gap: var(--space-4); }
+.dt-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.dt-num { font-variant-numeric: tabular-nums; }
+.dt-ico { width: 16px; height: 16px; flex: none; }
+
+/* ---------- Títulos ---------- */
+.dt-kicker { margin: 0; font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-text); }
+.dt-title { margin: var(--space-1) 0 0; font-size: 28px; line-height: 34px; font-weight: 700; color: var(--ink); }
+.dt-title em, .dt-h2 em { font-style: normal; color: var(--accent-display); }
+.dt-h2 { margin: var(--space-1) 0 0; font-size: 20px; line-height: 26px; font-weight: 700; color: var(--ink); }
+.dt-h3 { margin: 0; font-size: 16px; line-height: 22px; font-weight: 700; color: var(--ink); }
+.dt-sub { margin: var(--space-1) 0 0; font-size: 13px; line-height: 18px; color: var(--muted); }
+.dt-section { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4); padding-bottom: var(--space-3); border-bottom: 1px solid var(--line); }
+.dt-section-aside { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; justify-content: flex-end; }
+
+/* ---------- Card ---------- */
+.dt-card { min-width: 0; padding: var(--space-5); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); }
+.dt-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-4); }
+.dt-card-head .dt-sub { margin-top: 2px; }
+.dt-tag { display: inline-flex; align-items: center; height: 20px; padding: 0 var(--space-2); border: 1px dashed var(--line-strong); border-radius: var(--radius-sm); font-size: 11px; line-height: 16px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+
+/* ---------- Grade da página ---------- */
+.dt-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-4); }
+.dt-col-3 { grid-column: span 3; } .dt-col-4 { grid-column: span 4; } .dt-col-5 { grid-column: span 5; }
+.dt-col-6 { grid-column: span 6; } .dt-col-7 { grid-column: span 7; } .dt-col-8 { grid-column: span 8; }
+.dt-col-12 { grid-column: span 12; }
+@media (max-width: 960px) { .dt-grid > * { grid-column: span 6; } }
+@media (max-width: 640px) { .dt-grid > * { grid-column: span 12; } }
+
+/* ---------- Cabecalho ---------- */
+.dt-header { display: flex; align-items: center; gap: var(--space-4); min-height: var(--size-header); padding: 0 var(--space-6); background: var(--surface); border-bottom: 1px solid var(--line); }
+.dt-logo { display: flex; align-items: center; flex: none; height: 28px; }
+.dt-logo img { display: block; height: 28px; width: auto; }
+.dt-logo-text { display: none; font-size: 22px; line-height: 28px; font-weight: 700; color: var(--ink); }
+[data-theme="dark"] .dt-logo img { display: none; }
+[data-theme="dark"] .dt-logo-text { display: inline; }
+.dt-header-sep { flex: none; width: 1px; height: 32px; background: var(--line); }
+.dt-header-ctx { min-width: 0; }
+.dt-header-ctx .dt-kicker { font-size: 11px; line-height: 14px; }
+.dt-header-name { font-size: 16px; line-height: 20px; font-weight: 700; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dt-header-tools { margin-left: auto; display: flex; align-items: center; gap: var(--space-4); }
+.dt-sync { display: flex; align-items: center; gap: var(--space-2); font-size: 12px; line-height: 16px; color: var(--muted); white-space: nowrap; }
+.dt-sync .dt-ico { color: var(--ok); }
+
+/* ---------- Abas ---------- */
+.dt-tabs { display: flex; align-items: stretch; gap: var(--space-1); height: var(--size-tab); padding: 0 var(--space-6); background: var(--surface); border-bottom: 1px solid var(--line); overflow-x: auto; }
+.dt-tab { position: relative; display: inline-flex; align-items: center; gap: var(--space-2); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-sm) var(--radius-sm) 0 0; background: none; font: inherit; font-size: 14px; font-weight: 700; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.dt-tab:hover { color: var(--ink); background: var(--surface-alt); }
+.dt-tab[aria-selected="true"] { color: var(--ink); }
+.dt-tab[aria-selected="true"]::after { content: ""; position: absolute; left: var(--space-3); right: var(--space-3); bottom: -1px; height: 3px; background: var(--accent); }
+.dt-count { display: inline-flex; align-items: center; gap: 3px; height: 20px; padding: 0 6px; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); font-size: 12px; line-height: 16px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.dt-count .dt-ico { width: 12px; height: 12px; color: var(--warn); }
+
+/* ---------- CartaoKpi ---------- */
+.dt-kpi { display: flex; flex-direction: column; gap: var(--space-1); }
+.dt-kpi-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); min-height: 35px; }
+.dt-kpi-label { font-size: 13px; line-height: 18px; font-weight: 700; color: var(--muted); }
+.dt-kpi-value { font-size: 30px; line-height: 36px; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.dt-kpi-sub { font-size: 12px; line-height: 16px; color: var(--muted); }
+.dt-kpi-sub b { font-weight: 700; color: var(--ink); }
+.dt-kpi .dt-progress { margin-top: var(--space-2); }
+
+/* ---------- IconeHex ---------- */
+.dt-hex { display: inline-grid; place-items: center; flex: none; width: 40px; height: 35px; background: var(--accent); color: var(--white); clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%); }
+.dt-hex .dt-ico { width: 18px; height: 18px; }
+.dt-hex--sm { width: 28px; height: 24px; }
+.dt-hex--sm .dt-ico { width: 13px; height: 13px; }
+.dt-hex--lg { width: 56px; height: 48px; }
+.dt-hex--lg .dt-ico { width: 24px; height: 24px; }
+.dt-hex--panel { background: var(--panel); color: var(--white); }
+
+/* ---------- DestaqueTotal ---------- */
+.dt-callout { padding: var(--space-5) var(--space-6); background: var(--callout); color: var(--on-callout); border-radius: var(--radius-0); }
+.dt-callout .dt-kicker { color: var(--callout-kicker); }
+.dt-callout-value { margin-top: var(--space-2); font-size: 44px; line-height: 48px; font-weight: 700; white-space: nowrap; }
+.dt-callout-sub { margin-top: var(--space-2); font-size: 13px; line-height: 18px; color: var(--steel-300); }
+.dt-callout--accent { background: var(--accent); color: var(--on-accent); }
+.dt-callout--accent .dt-kicker, .dt-callout--accent .dt-callout-sub { color: var(--on-accent); }
+
+/* ---------- BarraProgresso ---------- */
+.dt-progress { display: grid; gap: 6px; }
+.dt-progress-head { display: flex; justify-content: space-between; gap: var(--space-3); font-size: 13px; line-height: 18px; }
+.dt-progress-label { font-weight: 700; color: var(--ink); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dt-progress-value { color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dt-progress-track { position: relative; height: 8px; background: var(--surface-alt); border-radius: var(--radius-sm); box-shadow: inset 0 0 0 1px var(--line); }
+.dt-progress-fill { height: 100%; min-width: 2px; max-width: 100%; background: var(--accent); border-radius: var(--radius-sm); }
+.dt-progress-mark { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; background: var(--chart-plan); }
+.dt-progress-foot { font-size: 12px; line-height: 16px; color: var(--muted); }
+.dt-progress-list { display: grid; gap: var(--space-4); }
+
+/* ---------- Tabela ---------- */
+.dt-table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); }
+.dt-table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 18px; color: var(--text); }
+.dt-table th { padding: 10px var(--space-3); background: var(--header); color: var(--on-header); font-size: 13px; font-weight: 700; text-align: left; white-space: nowrap; }
+.dt-table td { padding: 9px var(--space-3); border-top: 1px solid var(--line); vertical-align: middle; }
+.dt-table tbody tr:nth-child(even) td { background: var(--surface-alt); }
+.dt-table tbody tr:hover td { background: var(--selected); }
+.dt-table .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dt-table td.num { color: var(--ink); }
+.dt-table .muted { color: var(--muted); }
+.dt-table tr.dt-grp td { background: var(--surface); color: var(--ink); font-weight: 700; }
+.dt-table tr.is-selected td { background: var(--selected); box-shadow: inset 0 1px 0 var(--accent), inset 0 -1px 0 var(--accent); }
+.dt-table tfoot td { border-top: 0; background: var(--accent); color: var(--on-accent); font-weight: 700; }
+.dt-table .dt-progress-track { min-width: 64px; }
+.dt-code { font-family: var(--font-mono); font-size: 12px; line-height: 16px; color: var(--muted); }
+
+/* ---------- SeloStatus ---------- */
+.dt-badge { display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 8px 0 6px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); font-size: 12px; line-height: 16px; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.dt-badge .dt-ico { width: 14px; height: 14px; }
+.dt-badge--ok .dt-ico { color: var(--ok); }
+.dt-badge--warn .dt-ico { color: var(--warn); }
+.dt-badge--critical .dt-ico { color: var(--critical); }
+.dt-badge--info .dt-ico { color: var(--info); }
+.dt-badge--neutral .dt-ico { color: var(--muted); }
+
+/* ---------- Documentos ---------- */
+.dt-docs { margin: 0; padding: 0; list-style: none; }
+.dt-doc { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--line); }
+.dt-doc:first-child { border-top: 0; padding-top: 0; }
+.dt-doc-ico { display: grid; place-items: center; width: 32px; height: 32px; background: var(--surface-alt); border: 1px solid var(--line); border-radius: var(--radius-md); color: var(--ink); }
+.dt-doc-name { font-weight: 700; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dt-doc-meta { font-size: 12px; line-height: 16px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dt-doc-value { color: var(--ink); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* ---------- Pendencia ---------- */
+.dt-alerts { display: grid; gap: var(--space-2); }
+.dt-alert { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); }
+.dt-alert-ico { padding-top: 2px; }
+.dt-alert-ico .dt-ico { width: 18px; height: 18px; }
+.dt-alert--warn .dt-alert-ico { color: var(--warn); }
+.dt-alert--critical .dt-alert-ico { color: var(--critical); }
+.dt-alert--info .dt-alert-ico { color: var(--info); }
+.dt-alert-title { font-weight: 700; color: var(--ink); }
+.dt-alert-text { margin-top: 2px; font-size: 13px; line-height: 18px; color: var(--text); }
+.dt-alert-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-top: var(--space-2); }
+.dt-link { padding: 0; border: 0; background: none; font: inherit; font-size: 13px; font-weight: 700; color: var(--accent-text); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; border-radius: var(--radius-sm); }
+
+/* ---------- Controles ---------- */
+.dt-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); height: var(--size-control); padding: 0 var(--space-4); background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-md); font: inherit; font-size: 14px; font-weight: 700; color: var(--ink); cursor: pointer; white-space: nowrap; }
+.dt-btn:hover { background: var(--surface-alt); }
+.dt-btn--primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.dt-btn--primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.dt-btn--ghost { background: none; border-color: transparent; color: var(--accent-text); }
+.dt-btn--ghost:hover { background: var(--surface-alt); }
+.dt-btn[disabled] { cursor: not-allowed; opacity: .55; }
+.dt-field { display: inline-grid; gap: var(--space-1); }
+.dt-field-label { font-size: 12px; line-height: 16px; font-weight: 700; color: var(--muted); }
+.dt-select-wrap { position: relative; display: inline-flex; }
+.dt-select { height: var(--size-control); min-width: 200px; padding: 0 36px 0 var(--space-3); background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); font: inherit; font-size: 14px; color: var(--ink); appearance: none; -webkit-appearance: none; cursor: pointer; }
+.dt-select-wrap .dt-ico { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+.dt-seg { display: inline-flex; }
+.dt-seg button { height: var(--size-control); margin-left: -1px; padding: 0 var(--space-3); background: var(--surface); border: 1px solid var(--line-strong); font: inherit; font-size: 13px; font-weight: 700; color: var(--muted); cursor: pointer; }
+.dt-seg button:first-child { margin-left: 0; border-radius: var(--radius-md) 0 0 var(--radius-md); }
+.dt-seg button:last-child { border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+.dt-seg button[aria-pressed="true"] { position: relative; background: var(--selected); color: var(--ink); box-shadow: inset 0 -3px 0 var(--accent); }
+:where(.dt-btn, .dt-select, .dt-seg button, .dt-tab, .dt-link, .dt-data summary):focus-visible { outline: none; box-shadow: var(--focus-ring); position: relative; z-index: 1; }
+
+/* ---------- Gráficos ---------- */
+.dt-chart { position: relative; width: 100%; min-width: 0; }
+.dt-chart svg { display: block; overflow: visible; }
+.dt-legend { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: 0 0 var(--space-3); padding: 0; list-style: none; font-size: 12px; line-height: 16px; color: var(--text); }
+.dt-legend li { display: inline-flex; align-items: center; gap: 6px; }
+.dt-sw { display: inline-block; width: 12px; height: 12px; border-radius: var(--radius-sm); }
+.dt-sw--actual { background: var(--chart-actual); }
+.dt-sw--plan { background: var(--chart-plan); }
+.dt-sw--ctx { background: var(--chart-context); box-shadow: inset 0 0 0 1px var(--chart-context-edge); }
+.dt-sw--line { width: 16px; height: 0; border-radius: 0; border-top: 2px solid var(--chart-actual); }
+.dt-sw--dash { width: 16px; height: 0; border-radius: 0; border-top: 2px dashed var(--chart-plan); }
+.dt-c-grid { stroke: var(--chart-grid); stroke-width: 1; }
+.dt-c-axis { stroke: var(--chart-axis); stroke-width: 1; }
+.dt-c-tick { fill: var(--muted); font-family: var(--font-sans); font-size: 11px; font-variant-numeric: tabular-nums; }
+.dt-c-lbl { fill: var(--ink); font-family: var(--font-sans); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.dt-c-lbl-muted { fill: var(--muted); font-family: var(--font-sans); font-size: 11px; }
+.dt-c-lbl, .dt-c-lbl-muted { paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
+.dt-c-actual { fill: var(--chart-actual); }
+.dt-c-plan { fill: var(--chart-plan); }
+.dt-c-ctx { fill: var(--chart-context); stroke: var(--chart-context-edge); stroke-width: 1; }
+.dt-c-area { fill: var(--chart-actual-fill); }
+.dt-c-actual-line { fill: none; stroke: var(--chart-actual); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.dt-c-plan-line { fill: none; stroke: var(--chart-plan); stroke-width: 2; stroke-dasharray: 6 4; }
+.dt-c-ref { stroke: var(--chart-plan); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.dt-c-conn { stroke: var(--chart-axis); stroke-width: 1; stroke-dasharray: 3 3; }
+.dt-c-cross { stroke: var(--muted); stroke-width: 1; }
+.dt-c-dot { fill: var(--surface); stroke: var(--chart-actual); stroke-width: 2; }
+.dt-c-dot-plan { fill: var(--surface); stroke: var(--chart-plan); stroke-width: 2; }
+.dt-c-hit { fill: transparent; cursor: crosshair; }
+.dt-c-bar-hit { fill: transparent; cursor: pointer; }
+.dt-c-focus { fill: none; stroke: var(--ink); stroke-width: 1; }
+.dt-rl { display: grid; gap: var(--space-3); }
+.dt-rl-row { display: grid; grid-template-columns: minmax(110px, 32%) minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); font-size: 13px; line-height: 18px; }
+.dt-rl-label { font-weight: 700; color: var(--ink); overflow-wrap: anywhere; }
+.dt-rl-label small { display: block; font-size: 12px; font-weight: 400; color: var(--muted); }
+.dt-rl-track { height: 14px; }
+.dt-rl-fill { height: 100%; min-width: 2px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+.dt-rl-fill--actual { background: var(--chart-actual); }
+.dt-rl-fill--ctx { background: var(--chart-context); box-shadow: inset 0 0 0 1px var(--chart-context-edge); }
+.dt-rl-value { text-align: right; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dt-rl-value small { display: block; font-size: 12px; color: var(--muted); }
+.dt-tip { position: fixed; z-index: 50; min-width: 168px; max-width: 280px; padding: var(--space-2) var(--space-3); background: var(--tooltip); color: var(--on-tooltip); border-radius: var(--radius-md); box-shadow: var(--shadow-pop); font-family: var(--font-sans); font-size: 12px; line-height: 17px; pointer-events: none; opacity: 0; transform: translateY(4px); transition: opacity .12s ease, transform .12s ease; }
+.dt-tip.is-on { opacity: 1; transform: none; }
+.dt-tip-title { margin-bottom: 4px; font-weight: 700; }
+.dt-tip-row { display: flex; justify-content: space-between; gap: var(--space-4); font-variant-numeric: tabular-nums; }
+.dt-tip-row span:first-child { display: inline-flex; align-items: center; gap: 6px; }
+.dt-tip-sw { display: inline-block; width: 8px; height: 8px; border-radius: 1px; }
+.dt-tip-sw--actual { background: var(--chart-actual); }
+.dt-tip-sw--plan { width: 10px; height: 0; border-top: 2px dashed currentColor; border-radius: 0; }
+.dt-tip-sw--ctx { background: var(--chart-context); box-shadow: 0 0 0 1px currentColor; }
+.dt-data { margin-top: var(--space-3); font-size: 12px; line-height: 16px; }
+.dt-data summary { display: inline-block; color: var(--accent-text); font-weight: 700; cursor: pointer; border-radius: var(--radius-sm); }
+.dt-data .dt-table-wrap { margin-top: var(--space-2); max-height: 240px; overflow: auto; }
+@media (prefers-reduced-motion: reduce) { .dt-tip { transition: none; } }
+
+/* ---------- Faixa de rodapé ---------- */
+.dt-band { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2) var(--space-4); padding: 10px var(--space-6); background: var(--band); color: var(--on-band); font-size: 12px; line-height: 16px; }
+.dt-band b { font-weight: 700; }
+
+/* ---------- Página ---------- */
+.dt-page { min-height: 100%; background: var(--bg); }
+.dt-main { display: grid; gap: var(--space-4); padding: var(--space-6); }
+.dt-main > .dt-section { margin-top: var(--space-2); }

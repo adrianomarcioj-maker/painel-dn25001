@@ -1,0 +1,171 @@
+/* Gerado de tokens.json do design system "ARRB Dynatest · Gestão de Contrato". Não editar à mão. */
+:root {
+  color-scheme: light;
+  --navy: #0F2740;
+  --navy-deep: #14202E;
+  --cyan: #06A7E1;
+  --cyan-dark: #0588B8;
+  --cyan-700: #046A8F;
+  --cyan-50: #E6F7FD;
+  --slate: #3A4858;
+  --steel-900: #1B3553;
+  --steel-700: #2E5274;
+  --steel-300: #9CB3CC;
+  --line-200: #E2E6EB;
+  --mist: #F6F8FA;
+  --green: #2F8F5F;
+  --white: #FFFFFF;
+  --bg: var(--mist);
+  --surface: var(--white);
+  --surface-alt: var(--mist);
+  --selected: var(--cyan-50);
+  --panel: var(--navy);
+  --panel-tone: var(--steel-700);
+  --line: var(--line-200);
+  --line-strong: #7D8B9B;
+  --ink: var(--navy);
+  --text: var(--slate);
+  --muted: #5F6E7F;
+  --accent-text: var(--cyan-700);
+  --accent-display: var(--cyan-dark);
+  --accent: var(--cyan);
+  --accent-hover: #2EBBE7;
+  --on-accent: var(--navy);
+  --header: var(--navy);
+  --on-header: var(--white);
+  --callout: var(--navy);
+  --on-callout: var(--white);
+  --callout-kicker: var(--cyan);
+  --band: var(--navy-deep);
+  --on-band: var(--steel-300);
+  --tooltip: var(--navy);
+  --on-tooltip: var(--white);
+  --focus: var(--cyan-dark);
+  --ok: var(--green);
+  --warn: #B26B00;
+  --critical: #C2362B;
+  --info: var(--cyan-dark);
+  --chart-actual: var(--cyan);
+  --chart-actual-fill: #06A7E11F;
+  --chart-plan: var(--navy);
+  --chart-context: var(--steel-700);
+  --chart-context-edge: var(--steel-700);
+  --chart-grid: var(--line-200);
+  --chart-axis: #B9C2CC;
+  --shadow-pop: 0 4px 12px #0F274024, 0 1px 3px #0F27401F;
+  --focus-ring: 0 0 0 2px #FFFFFF, 0 0 0 4px #0588B8;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --radius-0: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --size-control: 36px;
+  --size-tab: 44px;
+  --size-header: 64px;
+  --size-row: 36px;
+  --font-sans: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+  --font-mono: Consolas, "Cascadia Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: var(--navy-deep);
+    --surface: var(--navy);
+    --surface-alt: #12304D;
+    --selected: #06344F;
+    --panel: var(--steel-700);
+    --panel-tone: var(--navy-deep);
+    --line: var(--steel-900);
+    --line-strong: #6F8CAB;
+    --ink: var(--white);
+    --text: #C9D6E3;
+    --muted: var(--steel-300);
+    --accent-text: var(--cyan);
+    --accent-display: var(--cyan);
+    --accent: var(--cyan);
+    --accent-hover: #2EBBE7;
+    --on-accent: var(--navy);
+    --header: var(--steel-900);
+    --on-header: var(--white);
+    --callout: var(--steel-900);
+    --on-callout: var(--white);
+    --callout-kicker: var(--cyan);
+    --band: var(--navy);
+    --on-band: var(--steel-300);
+    --tooltip: var(--white);
+    --on-tooltip: var(--navy);
+    --focus: var(--cyan);
+    --ok: #4CBF86;
+    --warn: #F2B544;
+    --critical: #FF8A7A;
+    --info: var(--cyan);
+    --chart-actual: var(--cyan);
+    --chart-actual-fill: #06A7E133;
+    --chart-plan: #C9D6E3;
+    --chart-context: var(--steel-700);
+    --chart-context-edge: #6F8CAB;
+    --chart-grid: var(--steel-900);
+    --chart-axis: var(--steel-700);
+    --shadow-pop: 0 8px 24px #00000099;
+    --focus-ring: 0 0 0 2px #0F2740, 0 0 0 4px #06A7E1;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: var(--navy-deep);
+  --surface: var(--navy);
+  --surface-alt: #12304D;
+  --selected: #06344F;
+  --panel: var(--steel-700);
+  --panel-tone: var(--navy-deep);
+  --line: var(--steel-900);
+  --line-strong: #6F8CAB;
+  --ink: var(--white);
+  --text: #C9D6E3;
+  --muted: var(--steel-300);
+  --accent-text: var(--cyan);
+  --accent-display: var(--cyan);
+  --accent: var(--cyan);
+  --accent-hover: #2EBBE7;
+  --on-accent: var(--navy);
+  --header: var(--steel-900);
+  --on-header: var(--white);
+  --callout: var(--steel-900);
+  --on-callout: var(--white);
+  --callout-kicker: var(--cyan);
+  --band: var(--navy);
+  --on-band: var(--steel-300);
+  --tooltip: var(--white);
+  --on-tooltip: var(--navy);
+  --focus: var(--cyan);
+  --ok: #4CBF86;
+  --warn: #F2B544;
+  --critical: #FF8A7A;
+  --info: var(--cyan);
+  --chart-actual: var(--cyan);
+  --chart-actual-fill: #06A7E133;
+  --chart-plan: #C9D6E3;
+  --chart-context: var(--steel-700);
+  --chart-context-edge: #6F8CAB;
+  --chart-grid: var(--steel-900);
+  --chart-axis: var(--steel-700);
+  --shadow-pop: 0 8px 24px #00000099;
+  --focus-ring: 0 0 0 2px #0F2740, 0 0 0 4px #06A7E1;
+}
+.display { font-family: var(--font-sans); font-size: 28px; line-height: 34px; font-weight: 700; }
+.titulo { font-family: var(--font-sans); font-size: 20px; line-height: 26px; font-weight: 700; }
+.subtitulo { font-family: var(--font-sans); font-size: 16px; line-height: 22px; font-weight: 700; }
+.corpo { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 400; }
+.rotulo { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 700; }
+.legenda { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 400; }
+.kicker { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.16em; }
+.kpi { font-family: var(--font-sans); font-size: 30px; line-height: 36px; font-weight: 700; }
+.destaque { font-family: var(--font-sans); font-size: 44px; line-height: 48px; font-weight: 700; }
+.tabela { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 400; }
+.codigo { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 400; }

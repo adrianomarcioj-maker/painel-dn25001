@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Painel DN25001</title>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/ds/tokens.css?v=20261002b">
+<link rel="stylesheet" href="assets/ds/bundle.css?v=20261002b">
+<link rel="stylesheet" href="assets/app.css?v=20261002b">
+</head>
+<body>
+<div id="carregando" class="app-loading" role="status">Carregando o painel…</div>
+
+<section id="tela-login" class="app-login" hidden>
+  <div class="app-login-wrap">
+    <form id="form-login" class="app-login-card" novalidate>
+      <span class="dt-logo"><img src="assets/img/logo-dynatest.png" alt="Dynatest" width="129" height="28"><span class="dt-logo-text">Dynatest</span></span>
+      <div>
+        <p class="dt-kicker">Consórcio ARRB Dynatest</p>
+        <h1 class="dt-title">Painel do contrato <em>DN25001</em></h1>
+        <p class="dt-sub">Acesso restrito à gestão do contrato.</p>
+      </div>
+      <label class="app-field" for="login-email"><span class="dt-field-label">E-mail</span>
+        <input id="login-email" class="app-input" type="email" autocomplete="username" required></label>
+      <label class="app-field" for="login-senha"><span class="dt-field-label">Senha</span>
+        <input id="login-senha" class="app-input" type="password" autocomplete="current-password" required></label>
+      <p id="login-erro" class="app-erro" role="alert" hidden></p>
+      <button class="dt-btn dt-btn--primary" type="submit" id="login-entrar">Entrar</button>
+      <p class="dt-sub">Esqueceu a senha ou ainda não tem acesso? Fale com o gestor do contrato.</p>
+    </form>
+  </div>
+  <footer class="dt-band"><span><b>Dynatest Engenharia</b> | Consórcio ARRB Dynatest</span><span>DN25001</span></footer>
+</section>
+
+<div id="tela-painel" class="dt-page" hidden>
+  <header class="dt-header app-header">
+    <span class="dt-logo"><img src="assets/img/logo-dynatest.png" alt="Dynatest" width="129" height="28"><span class="dt-logo-text">Dynatest</span></span>
+    <span class="dt-header-sep" aria-hidden="true"></span>
+    <div class="dt-header-ctx"><p class="dt-kicker">Consórcio ARRB Dynatest</p><div class="dt-header-name">DN25001 · Contrato DNIT</div></div>
+    <div class="dt-header-tools">
+      <span class="dt-select-wrap"><select id="sel-medicao" class="dt-select" aria-label="Medição de referência"></select><span id="ico-sel"></span></span>
+      <span class="dt-sync" id="sync"></span>
+      <span class="app-user" id="usuario"></span>
+      <button class="dt-btn dt-btn--ghost" id="btn-tema" type="button" aria-label="Alternar tema"></button>
+      <button class="dt-btn dt-btn--ghost" id="btn-senha" type="button" hidden>Alterar senha</button>
+      <button class="dt-btn" id="btn-sair" type="button" hidden>Sair</button>
+    </div>
+  </header>
+  <nav class="dt-tabs" role="tablist" aria-label="Áreas do painel" id="abas">
+    <button class="dt-tab" role="tab" type="button" data-aba="visao" aria-selected="true">Visão geral</button>
+    <button class="dt-tab" role="tab" type="button" data-aba="medicoes" aria-selected="false">Medições</button>
+    <button class="dt-tab" role="tab" type="button" data-aba="custos" aria-selected="false">Custos e rateio</button>
+    <button class="dt-tab" role="tab" type="button" data-aba="acertos" aria-selected="false">Acertos e repasses</button>
+    <button class="dt-tab" role="tab" type="button" data-aba="documentos" aria-selected="false">Documentos <span class="dt-count" id="cnt-docs"></span></button>
+    <button class="dt-tab" role="tab" type="button" data-aba="pendencias" aria-selected="false">Pendências <span class="dt-count" id="cnt-pend"></span></button>
+  </nav>
+  <div id="aviso" class="app-banner" hidden></div>
+  <form id="form-senha" class="app-banner app-senha" novalidate hidden>
+    <div class="app-senha-campos">
+      <label class="app-field" for="senha-nova"><span class="dt-field-label">Nova senha (mínimo 10 caracteres)</span>
+        <input id="senha-nova" class="app-input" type="password" autocomplete="new-password" minlength="10" required></label>
+      <label class="app-field" for="senha-conf"><span class="dt-field-label">Repita a nova senha</span>
+        <input id="senha-conf" class="app-input" type="password" autocomplete="new-password" minlength="10" required></label>
+      <button class="dt-btn dt-btn--primary" type="submit" id="senha-salvar">Salvar senha</button>
+      <button class="dt-btn" type="button" id="senha-cancelar">Cancelar</button>
+    </div>
+    <p id="senha-erro" class="app-erro" role="alert" hidden></p>
+  </form>
+  <main class="dt-main" id="conteudo" role="tabpanel" tabindex="-1"></main>
+  <footer class="dt-band"><span><b>Dynatest Engenharia</b> | Consórcio ARRB Dynatest</span><span id="rodape">DN25001 · Painel de gestão</span></footer>
+</div>
+<div id="toast" class="app-toast" role="status" hidden></div>
+
+<script src="config.js?v=20261002b"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.min.js"></script>
+<script src="assets/ds/bundle.js?v=20261002b"></script>
+<script src="assets/app.js?v=20261002b"></script>
+</body>
+</html>
